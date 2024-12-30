@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watermark App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Watermark App</h1>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required />
+        <input
+          type="text"
+          name="watermark_text"
+          placeholder="Enter watermark text"
+          required
+        />
+        <input
+          type="number"
+          name="font_size"
+          placeholder="Font size"
+          min="1"
+          required
+        />
+        <input
+          type="number"
+          name="font_weight"
+          placeholder="Font weight"
+          min="1"
+          required
+        />
+        <input type="color" name="font_color" value="#ffffff" required />
+        <select name="position" required>
+          <option value="top_left">Top Left</option>
+          <option value="top_right">Top Right</option>
+          <option value="bottom_left">Bottom Left</option>
+          <option value="bottom_right">Bottom Right</option>
+          <option value="center">Center</option>
+        </select>
+        <button type="submit">Add Watermark</button>
+      </form>
+    </div>
+  </body>
+</html>
